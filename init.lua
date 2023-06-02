@@ -1,4 +1,5 @@
-FileName = 'todos.md'
+-- CHANGE !
+FileName = '<path>/todos.md'
 
 function printHelp()
     print("cli-todo basic command line interpreter.")
@@ -35,7 +36,6 @@ function checkOrCreateFile(filename)
   end
 
   local next_id = file:read("n")
-  print("[INFO] The next_id from checkOrCreateFile function is", next_id)
   file:close()
   return next_id
 end
@@ -46,6 +46,7 @@ function addMessage(filename, id, msg)
   if file then
     local formatedMsg = string.format("(%s) [ ] %s\n", id, msg)
     file:write(formatedMsg)
+    print("[+] New TODO with id", id)
     file:close()
   end
 end
